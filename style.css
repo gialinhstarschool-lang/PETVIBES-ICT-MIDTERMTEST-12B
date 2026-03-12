@@ -148,44 +148,57 @@ table {
     background-color: #8B5A2B;
 }
 
-/* Reset cơ bản */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Cho toàn bộ trang cao bằng màn hình */
+/* Full chiều cao */
 html, body {
     height: 100%;
 }
 
-/* Dùng flex để đẩy footer xuống */
+/* Layout chính */
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #d8cfc0; /* màu nền ngoài */
+    background-color: #d8cfc0; /* màu nền be */
 }
 
-/* Phần nội dung chính sẽ tự giãn */
+/* Phần nội dung chính */
 .main-content {
-    flex: 1;
-    padding: 30px 50px;
+    flex: 1; /* QUAN TRỌNG: giúp giãn full chiều cao */
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 40px 0;
 }
 
 /* Khung trắng giỏ hàng */
 .cart-container {
-    background-color: white;
-    border-radius: 15px;
+    background: white;
+    width: 95%;              /* full gần hết bề ngang */
+    min-height: 80vh;        /* cao gần full màn hình */
+    border-radius: 20px;
     padding: 40px;
-    min-height: 70vh; /* làm nó cao hơn */
 }
 
-/* Footer luôn nằm cuối */
+/* Footer full ngang và sát đáy */
 footer {
     background-color: #7b4f28;
     color: white;
-    padding: 40px 50px;
+    padding: 40px 60px;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer {
+    background-color: #7b4f28;
+    color: white;
+    padding: 40px 0;   /* bỏ padding trái phải */
+    width: 100%;
     margin-top: auto;
 }

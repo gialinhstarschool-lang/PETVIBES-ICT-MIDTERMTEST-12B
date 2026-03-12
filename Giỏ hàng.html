@@ -1,155 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <title>Giỏ hàng - CocoPetShop</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS riêng -->
     <link rel="stylesheet" href="style.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg" style="background-color: #714b2c;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="color:aliceblue">COCOPETSHOP</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand text-white" href="#">COCOPETSHOP</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Coco.html" style="color:aliceblue">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="About.html" style="color:aliceblue">About</a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link" href="Products.html" style="color:aliceblue">Products</a>
-        </li>
-       <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Pet.html" style="color:aliceblue">Pet Care</a>
-        </li>
-       <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Petclub.html" style="color:aliceblue">Pet Club</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="form.html" style="color:aliceblue">Giỏ Hàng</a>
-        </li>
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link text-white" href="Coco.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="About.html">About</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Pet.html">Pet Care</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Petclub.html">Pet Club</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="form.html">Giỏ Hàng</a></li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success custom-search-btn" type="submit">Search</button>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-outline-light" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
-</head>
-<body>
-    
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Giỏ hàng của tôi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #e8ddcb; padding: 20px; }
-        .cart-container { background: white; padding: 20px; border-radius: 15px; }
-        .product-img-cart { width: 80px; border-radius: 10px; }
-    </style>
-</head>
-<body>
 
-<div class="container cart-container">
-    <h2 class="text-center mb-4" style="color: #714b2c;">GIỎ HÀNG CỦA BẠN</h2>
-    
-    <table class="table align-middle">
-        <thead>
-            <tr>
-                <th>Sản phẩm</th>
-                <th>Hình ảnh</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Tổng</th>
-                <th>Xóa</th>
-            </tr>
-        </thead>
-        <tbody id="cart-content">
-            <!-- Dữ liệu sẽ đổ vào đây bằng JavaScript -->
-        </tbody>
-    </table>
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <div class="cart-container">
 
-    <div class="text-end">
-        <h4>Tổng cộng: <span id="total-price" class="text-danger">0₫</span></h4>
-        <br>
-        <a href="Products.html" class="btn btn-secondary">Tiếp tục mua sắm</a>
-        <button class="btn btn-success" onclick="alert('Cảm ơn bạn đã mua hàng!')">Thanh toán</button>
-        <button class="btn btn-danger" onclick="clearCart()">Xóa hết giỏ hàng</button>
+        <h2 class="text-center mb-4" style="color: #714b2c;">GIỎ HÀNG CỦA BẠN</h2>
+
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody id="cart-content"></tbody>
+        </table>
+
+        <div class="text-end">
+            <h4>Tổng cộng: <span id="total-price" class="text-danger">0₫</span></h4>
+            <br>
+            <a href="Products.html" class="btn btn-secondary">Tiếp tục mua sắm</a>
+            <button class="btn btn-success" onclick="alert('Cảm ơn bạn đã mua hàng!')">Thanh toán</button>
+            <button class="btn btn-danger" onclick="clearCart()">Xóa hết giỏ hàng</button>
+        </div>
+
     </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+    <h3>THÔNG TIN LIÊN HỆ</h3>
+    <p>Địa chỉ: 256 Trần Hưng Đạo, P11, Q5, TP.HCM</p>
+    <p>Hotline: 093 269 6066</p>
+    <p>Email: cocopetshop2020@gmail.com</p>
+</footer>
+
+<!-- JS -->
 <script>
-    function renderCart() {
-        var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
-        var html = "";
-        var tongTien = 0;
+function renderCart() {
+    var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
+    var html = "";
+    var tongTien = 0;
 
-        if (gioHang.length === 0) {
-            document.getElementById('cart-content').innerHTML = "<tr><td colspan='6' class='text-center'>Giỏ hàng trống rỗng!</td></tr>";
-            document.getElementById('total-price').innerText = "0₫";
-            return;
-        }
-
-        gioHang.forEach((item, index) => {
-            // Chuyển đổi giá từ chuỗi "₫149,500" sang số để tính toán
-            var giaSo = parseInt(item.price.replace(/[^\d]/g, ""));
-            var thanhTien = giaSo * item.quantity;
-            tongTien += thanhTien;
-
-            html += `
-                <tr>
-                    <td>${item.name}</td>
-                    <td><img src="${item.image}" class="product-img-cart"></td>
-                    <td>${item.price}</td>
-                    <td>${item.quantity}</td>
-                    <td>${thanhTien.toLocaleString()}₫</td>
-                    <td><button class="btn btn-sm btn-danger" onclick="deleteItem(${index})">Xóa</button></td>
-                </tr>
-            `;
-        });
-
-        document.getElementById('cart-content').innerHTML = html;
-        document.getElementById('total-price').innerText = tongTien.toLocaleString() + "₫";
+    if (gioHang.length === 0) {
+        document.getElementById('cart-content').innerHTML =
+            "<tr><td colspan='6' class='text-center'>Giỏ hàng trống rỗng!</td></tr>";
+        document.getElementById('total-price').innerText = "0₫";
+        return;
     }
 
-    function deleteItem(index) {
-        var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
-        gioHang.splice(index, 1); // Xóa 1 phần tử tại vị trí index
-        localStorage.setItem('cart', JSON.stringify(gioHang));
-        renderCart(); // Vẽ lại bảng
-    }
+    gioHang.forEach((item, index) => {
+        var giaSo = parseInt(item.price.replace(/[^\d]/g, ""));
+        var thanhTien = giaSo * item.quantity;
+        tongTien += thanhTien;
 
-    function clearCart() {
-        if(confirm("Bạn có chắc muốn xóa sạch giỏ hàng?")) {
-            localStorage.removeItem('cart');
-            renderCart();
-        }
-    }
+        html += `
+            <tr>
+                <td>${item.name}</td>
+                <td><img src="${item.image}" width="80" style="border-radius:10px;"></td>
+                <td>${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>${thanhTien.toLocaleString()}₫</td>
+                <td>
+                    <button class="btn btn-sm btn-danger" onclick="deleteItem(${index})">Xóa</button>
+                </td>
+            </tr>
+        `;
+    });
 
-    // Chạy hàm render khi trang web vừa mở lên
+    document.getElementById('cart-content').innerHTML = html;
+    document.getElementById('total-price').innerText = tongTien.toLocaleString() + "₫";
+}
+
+function deleteItem(index) {
+    var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
+    gioHang.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(gioHang));
     renderCart();
+}
+
+function clearCart() {
+    if(confirm("Bạn có chắc muốn xóa sạch giỏ hàng?")) {
+        localStorage.removeItem('cart');
+        renderCart();
+    }
+}
+
+renderCart();
 </script>
-</body>
-</html>
-    
-        
-    
-   
-     
-        <div class="footer">
-            <h3>THÔNG TIN LIÊN HỆ</h3>
-            <p>Địa chỉ: 256 Trần Hưng Đạo, P11, Q5, TP.HCM</p>
-            <p>Hotline: 093 269 6066</p>
-            <p>Email: cocopetshop2020@gmail.com</p>
-        </div>
-    
 
 </body>
 </html>
