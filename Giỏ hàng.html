@@ -30,7 +30,7 @@
           <a class="nav-link active" aria-current="page" href="Petclub.html" style="color:aliceblue">Pet Club</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="form.html" style="color:aliceblue">Đăng nhập/Đăng ký</a>
+          <a class="nav-link active" aria-current="page" href="form.html" style="color:aliceblue">Giỏ Hàng</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -43,8 +43,101 @@
 </head>
 <body>
     
-  <h2> Đăng nhập</h2>
-     <h3>Email/số điện thoại/tên đăng nhập</h3>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng của tôi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #e8ddcb; padding: 20px; }
+        .cart-container { background: white; padding: 20px; border-radius: 15px; }
+        .product-img-cart { width: 80px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container cart-container">
+    <h2 class="text-center mb-4" style="color: #714b2c;">GIỎ HÀNG CỦA BẠN</h2>
+    
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody id="cart-content">
+            <!-- Dữ liệu sẽ đổ vào đây bằng JavaScript -->
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <h4>Tổng cộng: <span id="total-price" class="text-danger">0₫</span></h4>
+        <br>
+        <a href="Products.html" class="btn btn-secondary">Tiếp tục mua sắm</a>
+        <button class="btn btn-success" onclick="alert('Cảm ơn bạn đã mua hàng!')">Thanh toán</button>
+        <button class="btn btn-danger" onclick="clearCart()">Xóa hết giỏ hàng</button>
+    </div>
+</div>
+
+<script>
+    function renderCart() {
+        var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
+        var html = "";
+        var tongTien = 0;
+
+        if (gioHang.length === 0) {
+            document.getElementById('cart-content').innerHTML = "<tr><td colspan='6' class='text-center'>Giỏ hàng trống rỗng!</td></tr>";
+            document.getElementById('total-price').innerText = "0₫";
+            return;
+        }
+
+        gioHang.forEach((item, index) => {
+            // Chuyển đổi giá từ chuỗi "₫149,500" sang số để tính toán
+            var giaSo = parseInt(item.price.replace(/[^\d]/g, ""));
+            var thanhTien = giaSo * item.quantity;
+            tongTien += thanhTien;
+
+            html += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td><img src="${item.image}" class="product-img-cart"></td>
+                    <td>${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>${thanhTien.toLocaleString()}₫</td>
+                    <td><button class="btn btn-sm btn-danger" onclick="deleteItem(${index})">Xóa</button></td>
+                </tr>
+            `;
+        });
+
+        document.getElementById('cart-content').innerHTML = html;
+        document.getElementById('total-price').innerText = tongTien.toLocaleString() + "₫";
+    }
+
+    function deleteItem(index) {
+        var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
+        gioHang.splice(index, 1); // Xóa 1 phần tử tại vị trí index
+        localStorage.setItem('cart', JSON.stringify(gioHang));
+        renderCart(); // Vẽ lại bảng
+    }
+
+    function clearCart() {
+        if(confirm("Bạn có chắc muốn xóa sạch giỏ hàng?")) {
+            localStorage.removeItem('cart');
+            renderCart();
+        }
+    }
+
+    // Chạy hàm render khi trang web vừa mở lên
+    renderCart();
+</script>
+</body>
+</html>
     
         
     
