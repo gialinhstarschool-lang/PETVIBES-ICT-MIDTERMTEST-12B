@@ -147,3 +147,45 @@ table {
 .form-box button:hover {
     background-color: #8B5A2B;
 }
+
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cho toàn bộ trang cao bằng màn hình */
+html, body {
+    height: 100%;
+}
+
+/* Dùng flex để đẩy footer xuống */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #d8cfc0; /* màu nền ngoài */
+}
+
+/* Phần nội dung chính sẽ tự giãn */
+.main-content {
+    flex: 1;
+    padding: 30px 50px;
+}
+
+/* Khung trắng giỏ hàng */
+.cart-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    min-height: 70vh; /* làm nó cao hơn */
+}
+
+/* Footer luôn nằm cuối */
+footer {
+    background-color: #7b4f28;
+    color: white;
+    padding: 40px 50px;
+    margin-top: auto;
+}
