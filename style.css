@@ -73,3 +73,77 @@ table {
     text-transform: uppercase;
 }
 
+/* JOIN SECTION */
+.join-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 80px;
+    background-color: #e8ddcb;
+}
+
+.join-left {
+    width: 45%;
+}
+
+.join-left h1 {
+    font-size: 50px;
+    color: #654321;
+    font-weight: bold;
+}
+
+.join-left p {
+    color: #8B5A2B;
+    text-align: justify;
+}
+
+.join-right {
+    width: 40%;
+}
+
+/* FORM BOX */
+.form-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.form-box h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #654321;
+}
+
+.form-box label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.form-box input:focus {
+    border-color: #714b2c;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #714b2c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-box button:hover {
+    background-color: #8B5A2B;
+}
