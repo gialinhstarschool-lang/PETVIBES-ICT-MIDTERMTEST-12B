@@ -41,99 +41,49 @@
   </div>
 </nav>
 
-<!-- MAIN CONTENT -->
-<div class="main-content">
-    <div class="cart-container">
+</head>
 
-        <h2 class="text-center mb-4" style="color: #714b2c;">GIỎ HÀNG CỦA BẠN</h2>
 
-        <table class="table align-middle">
-            <thead>
-                <tr>
-                    <th>Sản phẩm</th>
-                    <th>Hình ảnh</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Tổng</th>
-                    <th>Xóa</th>
-                </tr>
-            </thead>
-            <tbody id="cart-content"></tbody>
-        </table>
+<!-- THÊM CLASS VÀO ĐÂY: flex-grow-1 -->
+<div class="main-content flex-grow-1">
+    <div class="container py-5">
+        <div class="cart-container bg-white p-4 shadow-sm" style="border-radius: 15px;">
+            <h2 class="text-center mb-4" style="color: #714b2c;">GIỎ HÀNG CỦA BẠN</h2>
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Hình ảnh</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-content"></tbody>
+            </table>
 
-        <div class="text-end">
-            <h4>Tổng cộng: <span id="total-price" class="text-danger">0₫</span></h4>
-            <br>
-            <a href="Products.html" class="btn btn-secondary">Tiếp tục mua sắm</a>
-            <button class="btn btn-success" onclick="alert('Cảm ơn bạn đã mua hàng!')">Thanh toán</button>
-            <button class="btn btn-danger" onclick="clearCart()">Xóa hết giỏ hàng</button>
+            <div class="text-end">
+                <h4>Tổng cộng: <span id="total-price" class="text-danger">0₫</span></h4>
+                <br>
+                <a href="Products.html" class="btn btn-secondary">Tiếp tục mua sắm</a>
+                <button class="btn btn-success" onclick="alert('Cảm ơn bạn đã mua hàng!')">Thanh toán</button>
+                <button class="btn btn-danger" onclick="clearCart()">Xóa hết giỏ hàng</button>
+            </div>
         </div>
-
     </div>
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER SẼ TỰ ĐỘNG BỊ ĐẨY XUỐNG DƯỚI CÙNG -->
+<div>
         <div class="footer"; style="width: 100%; display: block;">
             <h3>THÔNG TIN LIÊN HỆ</h3>
             <p>Địa chỉ: 256 Trần Hưng Đạo, P11, Q5, TP.HCM</p>
             <p>Hotline: 093 269 6066</p>
             <p>Email: cocopetshop2020@gmail.com</p>
         </div>
-    </div>
-
-<!-- JS -->
-<script>
-function renderCart() {
-    var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
-    var html = "";
-    var tongTien = 0;
-
-    if (gioHang.length === 0) {
-        document.getElementById('cart-content').innerHTML =
-            "<tr><td colspan='6' class='text-center'>Giỏ hàng trống rỗng!</td></tr>";
-        document.getElementById('total-price').innerText = "0₫";
-        return;
-    }
-
-    gioHang.forEach((item, index) => {
-        var giaSo = parseInt(item.price.replace(/[^\d]/g, ""));
-        var thanhTien = giaSo * item.quantity;
-        tongTien += thanhTien;
-
-        html += `
-            <tr>
-                <td>${item.name}</td>
-                <td><img src="${item.image}" width="80" style="border-radius:10px;"></td>
-                <td>${item.price}</td>
-                <td>${item.quantity}</td>
-                <td>${thanhTien.toLocaleString()}₫</td>
-                <td>
-                    <button class="btn btn-sm btn-danger" onclick="deleteItem(${index})">Xóa</button>
-                </td>
-            </tr>
-        `;
-    });
-
-    document.getElementById('cart-content').innerHTML = html;
-    document.getElementById('total-price').innerText = tongTien.toLocaleString() + "₫";
-}
-
-function deleteItem(index) {
-    var gioHang = JSON.parse(localStorage.getItem('cart')) || [];
-    gioHang.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(gioHang));
-    renderCart();
-}
-
-function clearCart() {
-    if(confirm("Bạn có chắc muốn xóa sạch giỏ hàng?")) {
-        localStorage.removeItem('cart');
-        renderCart();
-    }
-}
-
-renderCart();
-</script>
-
+</div>
+<body style="background-color:#e8ddcb;"></body>
+<!-- Các script giữ nguyên -->
 </body>
 </html>
